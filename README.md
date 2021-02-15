@@ -2,7 +2,7 @@
 
 Úkol z prvního cvičení na počítači.
 
-###Tabulka hodnot
+### Tabulka hodnot
 | **c** | **b** |**a** | **f(c,b,a)** |
 | :-: | :-: | :-: | :-: |
 | 0 | 0 | 0 | 1 |
@@ -14,6 +14,6 @@
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 0 |
 
-###odkaz na VHDL kód:
+### odkaz na VHDL kód:
 https://www.edaplayground.com/x/Ac49
 
