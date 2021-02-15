@@ -13,3 +13,7 @@
 | 1 | 0 | 1 | 0 |
 | 1 | 1 | 0 | 1 |
 | 1 | 1 | 1 | 0 |
+
+###odkaz na VHDL kód:
+https://www.edaplayground.com/x/Ac49
+
