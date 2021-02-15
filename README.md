@@ -20,4 +20,4 @@
 https://www.edaplayground.com/x/Ac49
 
 ### screenshot fungování funkce
-![screenshot] (d:Data/git/Digital-electronics-1)
+![screenshot] 
