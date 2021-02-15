@@ -2,6 +2,8 @@
 
 Úkol z prvního cvičení na počítači.
 
+## Ověření De Morganova zákona:
+
 ### Tabulka hodnot
 | **c** | **b** |**a** | **f(c,b,a)** |
 | :-: | :-: | :-: | :-: |
@@ -17,3 +19,5 @@
 ### odkaz na VHDL kód:
 https://www.edaplayground.com/x/Ac49
 
+### screenshot fungování funkce
+![screenshot] (d:Data/git/Digital-electronics-1)
