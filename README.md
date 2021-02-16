@@ -1,10 +1,11 @@
-# Digital-electronics-1
+# 01 Gates
 
 Úkol z prvního cvičení na počítači.
 
 odkaz na můj GitHub: https://github.com/JanMostecky
 
 ## Ověření De Morganova zákona:
+ukázka kódu
 
 ```vhdl
 architecture dataflow of gates is
