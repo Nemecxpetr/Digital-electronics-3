@@ -37,4 +37,4 @@ https://www.edaplayground.com/x/A5JW
 ### screenshot fungování funkce
 ![screenshot](/pictures/screenshot_3.JPG)
 
-
+## Ověření zákona o distribuci
