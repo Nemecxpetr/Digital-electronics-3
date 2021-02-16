@@ -38,3 +38,22 @@ https://www.edaplayground.com/x/A5JW
 ![screenshot](/pictures/screenshot_3.JPG)
 
 ## Ověření zákona o distribuci
+
+ukázka kódu
+
+```vhdl
+architecture dataflow of gates is
+begin
+    o1_o <= (x_i and y_i) or (x_i and z_i);
+    o2_o <= x_i and (y_i or z_i);
+    o3_o <= (x_i or y_i) and (x_i or z_i);
+    o4_o <= x_i or (y_i and z_i);
+
+end architecture dataflow;
+```
+
+### odkaz na VHDL kód: 
+https://www.edaplayground.com/x/Bji7
+
+### screenshot fungování funkcí
+![screenshot](/pictures/screenshot_4.JPG)
