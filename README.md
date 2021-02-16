@@ -19,9 +19,9 @@ odkaz na můj GitHub: https://github.com/JanMostecky
 | 1 | 1 | 1 | 0 | 0 | 0 |
 
 ### odkaz na VHDL kód:
-https://www.edaplayground.com/x/Ac49
+https://www.edaplayground.com/x/A5JW
 
 ### screenshot fungování funkce
-![screenshot](https://github.com/JanMostecky/Digital-electronics-1/tree/main/pictures/screnshot_3.JPG)
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/tree/main/pictures/screenshot_3.JPG)
 
 
