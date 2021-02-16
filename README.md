@@ -6,6 +6,18 @@ odkaz na můj GitHub: https://github.com/JanMostecky
 
 ## Ověření De Morganova zákona:
 
+```vhdl
+architecture dataflow of gates is
+begin
+    for_o <= (not (b_i) and a_i) or (not (c_i) and not (b_i));
+
+    fand_o <= not(not(not b_i and a_i) and not(not c_i and not b_i));
+
+    fnor_o <= not(b_i or not a_i) or not( c_i or b_i);
+
+end architecture dataflow;
+```
+
 ### Tabulka hodnot
 | **c** | **b** |**a** | **f(c,b,a)** | **fand(c,b,a)** | **fnor(c,b,a)** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
