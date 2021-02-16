@@ -22,6 +22,6 @@ odkaz na můj GitHub: https://github.com/JanMostecky
 https://www.edaplayground.com/x/Ac49
 
 ### screenshot fungování funkce
-![screenshot](/pictures/screanshot_2.JPG)
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/tree/main/pictures/screnshot_2.JPG)
 
 
