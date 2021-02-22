@@ -1,6 +1,6 @@
 # Lab 02: Cinbinational logic
 
-### Truth Table:
+## Truth Table:
 
 | **Dec. equivalent** | **B[1:0]** | **A[1:0]** | **B is greater than A** | **B equals A** | **B is less than A** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -21,3 +21,4 @@
 | 14 | 1 1 | 1 0 | 1 | 0 | 0 |
 | 15 | 1 1 | 1 1 | 0 | 1 | 0 |
 
+## Karnaugh maps: 
