@@ -32,6 +32,9 @@ y(B1, B0, A1, A0) = B1 * !A1 + B0 * !A1 * !A0 + B1 * B0 * !A0
 
 y(B1, B0, A1, A0) = (A1 + A0) * (!B1 + !B0) * (!B1 + A1) * (!B1 + A0) * (!B1 + A1)
 
+### B=A
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/K-map%20B%3DA.JPG)
+
 ## 2-bit comparator
 
 ### 
