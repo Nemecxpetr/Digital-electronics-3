@@ -37,4 +37,8 @@ y(B1, B0, A1, A0) = (A1 + A0) * (!B1 + !B0) * (!B1 + A1) * (!B1 + A0) * (!B1 + A
 
 ## 2-bit comparator
 
-### 
+### Eda playground link : 
+
+https://www.edaplayground.com/x/fFGz
+
+### 4-bit comparator
