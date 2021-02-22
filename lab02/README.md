@@ -23,11 +23,11 @@
 
 ## Karnaugh maps: 
 ### B>A
-![screenshot](/pictures/K-map SoP.JPG)
+![screenshot](/pictures/K-mapSoP.JPG)
 
 y(B1, B0, A1, A0) = B1*!A1 + B0*!A1*!A0 + B1*B0*!A0
 
 ### B<A
-![screenshot](/pictures/K-map PoS.JPG)
+![screenshot](/pictures/K-mapPoS.JPG)
 
 y(B1, B0, A1, A0) = (A1 + A0) * (!B1 + !B0) * (!B1 + A1) * (!B1 + A0) * (B1 + !B0 + A1)
