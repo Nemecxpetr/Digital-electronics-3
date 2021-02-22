@@ -25,7 +25,7 @@
 ### B>A
 ![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/K-map%20SoP.JPG)
 
-y(B1, B0, A1, A0) = B1*!A1 + B0*!A1*!A0 + B1*B0*!A0
+y(B1, B0, A1, A0) = B1 * !A1 + B0 * !A1 * !A0 + B1 * B0 * !A0
 
 ### B<A
 ![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/K-map%20PoS.JPG)
