@@ -1,4 +1,4 @@
-### Lab_03 Vivado
+# Lab_03 Vivado
 
 ## VHDL code of 4 to 1 multiplexor
 
