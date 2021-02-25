@@ -34,6 +34,11 @@ end architecture Behavioral;
         wait;
         
     end process p_stimulus;
-    ```
+   
+   ```
+   
+   
+  ## Sreenshot of behavioral simulation
     
+  ![screenshot]https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/Lab_03_symulation.JPG
     
