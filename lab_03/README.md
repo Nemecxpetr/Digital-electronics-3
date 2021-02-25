@@ -40,5 +40,5 @@ end architecture Behavioral;
    
   ## Sreenshot of behavioral simulation
     
-  ![screenshot]https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/Lab_03_symulation.JPG
+  ![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/Lab_03_symulation.JPG)
     
