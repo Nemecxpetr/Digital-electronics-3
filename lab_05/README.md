@@ -82,4 +82,7 @@ p_cnt_up_down : process(clk)
         wait;
     end process p_stimulus;
 ```
-    
+
+### Screenshot simulace:
+
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/cvika%2005.JPG)
