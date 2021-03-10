@@ -42,7 +42,7 @@ p_cnt_up_down : process(clk)
     end process p_cnt_up_down;
 ```
    
-    ### Testbench procesy:
+   ### Testbench procesy:
    
 ```vhdl
    p_reset_gen : process
