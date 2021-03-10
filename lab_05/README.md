@@ -40,12 +40,11 @@ p_cnt_up_down : process(clk)
             end if;
         end if;
     end process p_cnt_up_down;
-    
-    ```
+```
    
     ### Testbench procesy:
    
-   ```vhdl
+```vhdl
    p_reset_gen : process
     begin
         s_reset <= '0';
@@ -81,5 +80,5 @@ p_cnt_up_down : process(clk)
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;
-    ```
+```
     
