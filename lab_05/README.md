@@ -3,6 +3,17 @@
 
 ## Domácí příprava
 
+### Tabulka pinů na desce:
+Table with connection of push buttons on Nexys A7 board:
+ | **Button name** | **Pin** | 
+   | :-: | :-: |
+   | BTNL | P17 | 
+   | BTNR | M17 |
+   | BTNU | M18 | 
+   | BTND | P18 | 
+   | BTNC | N17 | 
+   | BTNRES | C12 |
+
 ### Tabulka vypočtených hodnot:
 
 | **Time interval** | **Number of clk periods** | **Number of clk periods in hex** | **Number of clk periods in binary** |
