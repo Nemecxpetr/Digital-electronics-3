@@ -151,3 +151,6 @@ clk_en0 : entity work.clock_enable
 
 end architecture behavioral;
 ```
+
+### Nákres architektury top:
+
