@@ -154,3 +154,6 @@ end architecture behavioral;
 
 ### Nákres architektury top:
 
+![screenshotj](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/05-top.jpg)
+
+
