@@ -1,6 +1,6 @@
 
 
-
+```vhdl
 {
   signal:
   [
@@ -27,4 +27,6 @@
     text: '                    4ms   4ms   4ms   4ms   4ms   4ms   4ms   4ms   4ms   4ms',
   },
 }
+```
+
 
