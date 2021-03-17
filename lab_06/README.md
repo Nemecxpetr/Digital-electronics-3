@@ -248,4 +248,11 @@ begin
 end architecture Behavioral;
 ```
 
-## 
+## 8 digit verze
+
+K vytvoření schématu jsem použil nákres pana inženýra Rozuma, který jsem následně rozšířil na osmi-displayový.
+
+![sreenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/8digit.jpg)
+
+
+
