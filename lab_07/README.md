@@ -467,6 +467,18 @@ p_clk_gen : process
     end process p_stimulus;
 ```
 
+## Wawe forms
 
+### tb_p_d_ff_arst
+
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/lab_07_tb_02.JPG)
+
+### tb_p_d_ff_arst
+
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/lab_07_tb_03.JPG)
+
+### tb_p_d_ff_rst
+
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/lab_07_tb_04.JPG)
 
 
