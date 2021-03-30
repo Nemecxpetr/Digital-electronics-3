@@ -246,3 +246,153 @@ p_t_ff_rst : process (clk)
     q     <= s_q;
     q_bar <= s_q_bar;
 ```
+
+## Testbenches
+
+### tb_p_d_ff_arst
+
+```vhdl
+p_clk_gen : process
+    begin
+        while now < 750 ns loop         -- 75 periods of 100MHz clock
+            s_clk <= '0';
+            wait for c_clk_PERIOD / 2;
+            s_clk <= '1';
+            wait for c_clk_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+    
+ p_reset_gen : process
+    begin
+        s_arst <= '0';
+        wait for 28 ns;
+        
+        -- Reset activated
+        s_arst <= '1';
+        wait for 53 ns;
+
+        -- Reset deactivated
+        s_arst <= '0';
+
+        wait;
+    end process p_reset_gen;
+    
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        s_d <= '0';
+        
+        --d sekv
+        wait for 14 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        
+       
+        wait for 4 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';   
+        --/d sekv
+        
+        --d sekv
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';   
+        --/d sekv
+        
+    report "Stimulus process finished" severity note;
+    wait;
+    end process p_stimulus;
+```
+
+### tb_p_d_ff_rst
+
+```vhdl
+p_clk_gen : process
+    begin
+        while now < 750 ns loop         -- 75 periods of 100MHz clock
+            s_clk <= '0';
+            wait for c_clk_PERIOD / 2;
+            s_clk <= '1';
+            wait for c_clk_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+    
+ p_reset_gen : process
+    begin
+        s_rst <= '0';
+        wait for 28 ns;
+        
+        -- Reset activated
+        s_rst <= '1';
+        wait for 53 ns;
+
+        -- Reset deactivated
+        s_rst <= '0';
+
+        wait;
+    end process p_reset_gen;
+    
+ p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        s_d <= '1';
+        
+        --d sekv
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';        
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        
+        assert(s_q = '0' and s_q_bar = '1')
+        report "Error - Failed" severity error;
+        
+        wait for 20 ns;
+        s_d  <= '1';
+        wait for 25 ns;
+        
+        assert(s_q = '1' and s_q_bar = '0')
+        report "Error - Failed" severity error;
+        --/d sekv
+        
+        --d sekv
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';
+        wait for 10 ns;
+        s_d  <= '0';
+        wait for 10 ns;
+        s_d  <= '1';   
+        --/d sekv
+        
+    report "Stimulus process finished" severity note;
+    wait;
+    end process p_stimulus;
+```
+
+
+
