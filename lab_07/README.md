@@ -39,3 +39,40 @@
    
    q(n+1) = t*q(n)! + t!*q(n)
 
+## D latch
+
+### VHLD code process p_d_latch
+
+```vhdl
+p_d_latch : process (d, arst, en)
+begin
+    if (arst = '1') then
+        q     <= '0';
+        q_bar <= '1';
+    elsif  (en = '1') then
+        q <= d;
+        q_bar <= not d;        
+    end if;
+end process p_d_latch;
+```
+
+### VHDL code tb_d_latch
+
+```vhdl
+p_reset_gen : process
+    begin
+        s_arst <= '0';
+        wait for 28 ns;
+        
+        -- Reset activated
+        s_arst <= '1';
+        wait for 53 ns;
+
+        -- Reset deactivated
+        s_arst <= '0';
+
+        wait;
+    end process p_reset_gen;
+    
+    p_stimulus  : process
+    
