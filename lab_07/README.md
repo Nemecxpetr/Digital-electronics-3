@@ -177,6 +177,24 @@ begin
 end process p_ff_arst;                 
 ```
 
+
+### p_d_ff_rst
+
+```vhdl
+p_ff_rst : process (clk)             
+begin                                         
+    if rising_edge(clk) then
+      if (rst = '1') then               
+         q <= '0';
+         q_bar <= '1';
+      else                           
+         q <= d;
+         q_bar <= not d;
+      end if;
+   end if;             
+end process p_ff_rst;   
+```
+
 ### p_jk_ff_rst
 
 ```vhdl
@@ -205,3 +223,26 @@ end process p_jk_ff_rst;
 end Behavioral;
 ```
 
+### p_t_ff_rst
+```vhdl
+p_t_ff_rst : process (clk)
+    begin
+        if rising_edge(clk) then
+            if (rst = '1') then
+                s_q     <= '0';
+                s_q_bar <= '1';
+            else
+                if (t = '0') then
+                    s_q     <= s_q;
+                    s_q_bar <= s_q_bar;
+                else
+                    s_q     <= not s_q;
+                    s_q_bar <= not s_q_bar;
+                end if;    
+            end if;
+        end if;
+    end process p_t_ff_rst;
+    
+    q     <= s_q;
+    q_bar <= s_q_bar;
+```
