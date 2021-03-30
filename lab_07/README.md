@@ -74,7 +74,85 @@ p_reset_gen : process
         wait;
     end process p_reset_gen;
     
-    p_stimulus  : process
+     p_stimulus  : process
+    begin
+    report "Stimulus process started" severity note;
+    s_d  <= '0';
+    s_en <= '0';
+    
+    assert(s_q = '0')
+    report "Error" severity error;
+    
+    --d sekv
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    --/d sekv
+    
+    assert(s_q = '0' and s_q_bar = '1')
+    report "Error" severity error;
+    
+    s_en <= '1';
+    
+    --d sekv
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_en  <= '0';  -- en to 0
+    wait for 200 ns;
+    s_d  <= '0';    
+    --/d sekv
+    
+    --d sekv
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    --/d sekv
+    
+    --d sekv
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    wait for 10 ns;
+    s_d  <= '1';
+    wait for 10 ns;
+    s_d  <= '0';
+    --/d sekv
+    
+    report "Stimulus process finished" severity note;
+    wait;
+    end process p_stimulus;
 ```
 
 ### Tb screenshot
