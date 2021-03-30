@@ -394,5 +394,79 @@ p_clk_gen : process
     end process p_stimulus;
 ```
 
+### tb_jk_ff_rst
+
+```vhdl
+p_clk_gen : process
+    begin
+        while now < 750 ns loop         -- 75 periods of 100MHz clock
+            s_clk <= '0';
+            wait for c_CLK_PERIOD / 2;
+            s_clk <= '1';
+            wait for c_CLK_PERIOD / 2;
+        end loop;
+        wait;
+    end process p_clk_gen;
+    
+    p_reset_gen : process
+    begin
+        s_rst <= '0';
+        wait for 28 ns;
+        
+        -- Reset activated
+        s_rst <= '1';
+        wait for 53 ns;
+
+        -- Reset deactivated
+        s_rst <= '0';
+
+        wait;
+    end process p_reset_gen;
+    
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        s_j <= '0';
+        s_k <= '0';
+        
+        --d sekv
+        wait for 37 ns;
+        s_j <= '0';
+        s_k <= '0';        
+        wait for 3 ns;
+        s_j <= '1';
+        s_k <= '0';                       
+        wait for 7 ns;
+        s_j <= '0';
+        s_k <= '1';        
+        wait for 14 ns;
+        s_j <= '1';
+        s_k <= '0';       
+        wait for 7 ns;
+        s_j <= '1';
+        s_k <= '1';
+        --/d sekv
+        
+        --d sekv
+        wait for 7 ns;
+        s_j <= '0';
+        s_k <= '0';             
+        wait for 7 ns;
+        s_j <= '0';
+        s_k <= '1';     
+        wait for 7 ns;
+        s_j <= '1';
+        s_k <= '0';     
+        wait for 7 ns;
+        s_j <= '1';
+        s_k <= '1';
+        --/d sekv
+
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+```
+
+
 
 
