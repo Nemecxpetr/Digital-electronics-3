@@ -157,6 +157,8 @@ p_reset_gen : process
 
 ### Tb screenshot
 
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/lab_07_tbdlatch.JPG)
+
 ## Flip-flops
 
 ### p_d_ff_arst
