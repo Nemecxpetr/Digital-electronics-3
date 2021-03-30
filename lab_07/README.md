@@ -6,10 +6,10 @@
 
  | **D** | **Qn** | **Q(n+1)** | **Comments** |
    | :-: | :-: | :-: | :-- |
-   | 0 | 0 | 1 | change |
-   | 0 | 0 | 1 | no change |
-   | 1 | 0 | 1 | change |
-   | 1 | 1 | 0 | no change |
+   | 0 | 0 | 0 | no change |
+   | 0 | 1 | 0 |  change |
+   | 1 | 1 | 1 | no change |
+   | 1 | 0 | 1 |  change |
    
    q(n+1) = d
    
