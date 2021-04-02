@@ -138,5 +138,9 @@ p_output_fsm : process(s_state)
         end case;
     end process p_output_fsm;
 ```
+### Simulace
+
+![screenshot](https://github.com/JanMostecky/Digital-electronics-1/blob/main/pictures/LAB_8_simulation.JPG)
+
 
 
