@@ -3,8 +3,11 @@
 ### Team members
 
 Januška Tomáš
+
 Klimeš Jiří
+
 Mostecký Jan
+
 Němec Petr
 
 [Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
