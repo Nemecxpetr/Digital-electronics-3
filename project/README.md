@@ -52,13 +52,13 @@ https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/ar
 Arty A7-35T comes with several types of inputs or outputs, all can be seen on images below:
 
 Board Image
-![BoardImage](Images/Arty_A7_Board.png)
+![BoardImage](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Arty_A7_Board.PNG)
 
 Board Description
-![BoardDescription](Images/Board_Description.png)
+![BoardDescription](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Basic_IO.PNG)
 
 Basic I/O
-![BoardIO](Images/Basic_IO.PNG)
+![BoardIO](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Board_Description.png)
 
 
 
