@@ -84,8 +84,6 @@ That would also allow us to measure time from start (00:00) to maximum possible 
 After that, the timer would reset and start over.
 A better implementation would be with 6 digit 7 seg. display, that would allow us to measure (count) hours as well, extending the functionality of time measuring greatly.
 
-Example of such display:
-![BoardIO](Images/6Dig_7Seg_Display.PNG)
 
 Available for example here:
 https://www.aliexpress.com/i/32367486295.html
