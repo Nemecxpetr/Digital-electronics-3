@@ -7,7 +7,7 @@ Klimeš Jiří
 Mostecký Jan
 Němec Petr
 
-[Link to your GitHub project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
+[Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
 
 
 
