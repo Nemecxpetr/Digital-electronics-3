@@ -77,11 +77,287 @@ Přepínání zobrazených modulů na display. Pro tuto funkci byly navrženy dv
 - Tlačítko B:
 Resetování celého zařízení, vynulování přičítání ujeté vzdálenosti. 
 
+### Schéma top modulu
+
+
+
 
 -----------------------------------
-## VHDL modules description and simulations
+## VHDL moduly a jejich popis
 
-### Design modules
+### On_off modul
+
+On_off modul slouží ke spouštění celého systému pomocí přepínače. 
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity on_off is
+      Port (
+            start_i : in  std_logic;     -- Input from Switch (0) to turn on/off the tachometer
+            start_o : out std_logic     -- Output that starts other modules
+            );
+end on_off;
+
+architecture Behavioral of on_off is
+
+begin
+
+      p_on_off : process(start_i)       -- When start_i changes ( we change the position of SW(0), the process is triggered)
+         begin
+            if (start_i = '1') then         -- Switch in position ON (or position 1)
+                start_o <= '1';                 -- Output is 1
+            else     -- Switch in position OFF (or 0)
+                start_o <= '0';                 -- Output is 0
+            end if;
+         end process p_on_off;
+
+end Behavioral;
+
+```
+
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity tb_on_off is
+--  Port ( );
+end tb_on_off;
+
+architecture Behavioral of tb_on_off is
+
+        signal s_start_i      : std_logic;
+        signal s_start_o      : std_logic;
+
+begin
+    uut_on_off : entity work.on_off
+       
+     port map(
+            start_i  => s_start_i,
+            start_o  => s_start_o
+             );
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        
+        s_start_i     <= '0';
+        wait for 100 ns;        
+        s_start_i     <= '1';
+        wait for 200 ns;        
+        s_start_i     <= '0';
+        wait for 20 ns;       
+        s_start_i     <= '1';
+        wait for 300 ns;        
+        s_start_i     <= '0';
+        wait for 200 ns;        
+        s_start_i     <= '1';
+        wait for 150 ns;
+
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+
+end Behavioral;
+
+```
+
+### sensor modul
+
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+
+entity sensor is
+  Port (
+        input    : in  std_logic;
+        en_i     : in  std_logic;
+        reset    : in std_logic;
+        
+        revs_o   : out std_logic_vector(13 downto 0)
+         );
+end sensor;
+
+architecture Behavioral of sensor is
+    
+    signal s_cnt_local : natural;
+    
+begin
+    
+    p_cnt_up_down : process(input, reset)
+    begin
+        
+            if (reset = '1') then               -- Synchronous reset
+                s_cnt_local <= 0;
+            elsif (en_i = '1') then       -- Test if counter is enabled
+                    -- TEST COUNTER DIRECTION HERE
+                if rising_edge(input) then
+                    if (s_cnt_local = 5000) then
+                        s_cnt_local <=0;
+                    else
+                    s_cnt_local <= s_cnt_local + 1;
+                    end if;
+            end if;
+
+        end if;
+    end process p_cnt_up_down;
+
+    revs_o <= std_logic_vector(to_unsigned(s_cnt_local, revs_o'length));
+
+end Behavioral;
+
+```
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+
+entity tb_sensor is
+
+end tb_sensor;
+
+architecture Behavioral of tb_sensor is
+
+        signal s_input      : std_logic;
+        signal s_en_i       : std_logic;
+        signal s_reset      : std_logic;
+        signal s_revs       : std_logic_vector(13 downto 0);
+
+begin
+    uut_on_off : entity work.sensor
+
+     port map(
+            input  => s_input,
+            en_i   => s_en_i,
+            reset  => s_reset,
+            revs_o   => s_revs
+             );
+
+    --------------------------------------------------------------------
+    -- Reset generation process
+    --------------------------------------------------------------------
+    p_reset_gen : process
+    begin
+        s_reset <= '0';
+        wait for 20 ns;
+        
+        -- Reset activated
+        s_reset <= '0';
+        wait for 30 ns;
+
+        s_reset <= '0';
+        wait for 700 ns;
+        
+        s_reset <= '0';
+        wait for 70 ns;
+        
+        s_reset <= '0';
+        
+        wait;
+    end process p_reset_gen;
+    
+
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        
+        s_en_i     <= '1';
+        
+        s_input    <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;    
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';    
+        wait for 10 ns;       
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;
+        
+        s_en_i      <='0';
+        
+        s_input    <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;        
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';    
+        wait for 10 ns;       
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;
+        
+        
+        s_en_i     <= '1';
+        
+        s_input    <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;        
+        s_input     <= '0';
+        wait for 10 ns;    
+        s_en_i     <= '0';    
+        s_input     <= '1';    
+        wait for 10 ns;       
+        s_input     <= '0';
+        wait for 10 ns;    
+        s_en_i     <= '1';    
+        s_input     <= '1';
+        wait for 10 ns;
+        
+        s_input    <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;        
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';    
+        wait for 10 ns;       
+        s_input     <= '0';
+        wait for 10 ns;        
+        s_input     <= '1';
+        wait for 10 ns;
+        
+        
+        s_input    <= '0';
+        wait for 50 ns;        
+        s_input     <= '1';
+        wait for 40 ns;        
+        s_input     <= '0';
+        wait for 20 ns;        
+        s_input     <= '1';    
+        wait for 30 ns;       
+        s_input     <= '0';
+        wait for 70 ns;        
+        s_input     <= '1';
+        wait for 60 ns;
+        
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+
+end Behavioral;
+```
+
+
 
 
 
