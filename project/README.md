@@ -40,13 +40,13 @@ https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/ar
 
 ### Vstupy a výstupy desky Arty A7-35T:
 
-Board Image
+deska Arty A7-35T
 ![BoardImage](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Arty_A7_Board.PNG)
 
-Board Description
+Popis desky
 ![BoardIO](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Board_Description.png)
 
-Basic I/O
+Základní vstupy a výstupy
 ![BoardDescription](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Basic_IO.PNG)
 
 
