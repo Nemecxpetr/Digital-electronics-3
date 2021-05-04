@@ -2,10 +2,11 @@
 
 ### vypracovali:
 
-Januška Tomáš (),
+
 Klimeš Jiří (),
 Mostecký Jan (),
-Němec Petr ()
+Němec Petr (),
+Januška Tomáš ()
 
 [Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
 
@@ -43,27 +44,10 @@ Board Image
 ![BoardImage](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Arty_A7_Board.PNG)
 
 Board Description
-![BoardDescription](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Basic_IO.PNG)
-
-Basic I/O
 ![BoardIO](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Board_Description.png)
 
-
-
-According to my basic VHDL and FPGA programming knowledge, the simplest way to operate this device that I could think of would be:
-There will be 1 switch and 2 buttons.
-
-- Switch: will have function of turning on/off the tachometer.
-
-- First button:
-The idea was to make this as FSM (finite state machine) whose states will change the displayed parameter.
-All 3 measured parameters will be measured and calculated in parallel, but only one will be displayed at the time.
-Hence the function of the first button, that is to change between the states, and thus change then displayed parameter.
-
-- Second button:
-The function of the second button is to simply reset the whole device.
-Meaning, pressing the button should set the Distance, Time and Velocity to 0, and the counting will start over.
-
+Basic I/O
+![BoardDescription](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Basic_IO.PNG)
 
 
 The 7 segment display:
@@ -80,19 +64,35 @@ That display would include colon (double dot, ":") between hours, minutes and se
 And while measuring distance and velocity, colon wouldn't be displayed.
 
 
+-----------------------------------
+## Teoretický návrh tachometru
+
+Pro zjednodušení implementace - vzhledem k našim začátečnických schopnostem ve VHDL - bylo rozhodnuto o ovládání tachometru jedním přepínačem a dvěma tlačítky. 
+
+- Přepínač: zapínání a vypínání celého zařízení.
+
+- Tlačítko A:
+Přepínání zobrazených modulů na display. Pro tuto funkci byly navrženy dva různé moduly. První verze bylo použití stavového automatu, druhá verze za použití multiplexoru. 
+
+- Tlačítko B:
+Resetování celého zařízení, vynulování přičítání ujeté vzdálenosti. 
 
 
 -----------------------------------
 ## VHDL modules description and simulations
 
-Design modules
+### Design modules
 
 
 
 
 
 
-Testbench modules
+
+
+
+
+### Testbench modules
 
 
 -----------------------------------
