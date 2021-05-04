@@ -85,6 +85,8 @@ Resetování celého zařízení, vynulování přičítání ujeté vzdálenost
 -----------------------------------
 ## VHDL moduly a jejich popis
 
+V každé podkapitole jdou za sebou design kód a testbench kód. 
+
 ### On_off modul
 
 On_off modul slouží ke spouštění celého systému pomocí přepínače. 
@@ -167,8 +169,9 @@ end Behavioral;
 
 ```
 
-### sensor modul
+### Sensor modul
 
+Sensor modul slouží k zaznamenávání a následnému předávání signálu z halovy sondy dál do systému k výpočtu rychlosti a ujeté vzdálenosti. 
 
 ```vhdl
 library IEEE;
@@ -357,8 +360,145 @@ begin
 end Behavioral;
 ```
 
+### Distance modul
+
+Modul distance slouží k výpočtu ujeté vzdálenosti
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 
+entity distance is
+    generic(
+    perimeter : natural := 2    
+            );
+            
+    Port (
+           reset    :  in   std_logic;
+           en_i     :  in   std_logic;
+           revs_i   :  in   natural;
+           dist     :  out  natural
+          );
+end distance;
+
+architecture Behavioral of distance is
+
+
+begin
+
+    p_cnt_distance : process(revs_i)
+    begin
+        if (reset = '1') then               -- Reset
+                dist <= 0;
+            elsif (en_i = '1') then       -- Test if counter is enabled
+                if revs_i = 5000 then
+                    dist<=0;
+                else
+                dist <= revs_i * perimeter;
+                end if;
+            end if;
+            
+    end process p_cnt_distance;
+
+
+end Behavioral;
+
+```
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+
+entity tb_distance is
+
+end tb_distance;
+
+architecture Behavioral of tb_distance is
+
+        constant c_perimeter    : natural := 2;
+
+        signal s_reset          : std_logic;
+        signal s_en_i           : std_logic;
+        signal s_revs           : natural;
+        signal s_dist           : natural;
+
+begin
+    uut_distance : entity work.distance
+
+     port map(
+           reset   => s_reset,
+           en_i    => s_en_i,
+           revs_i  => s_revs,
+           dist    => s_dist
+             );
+
+    --------------------------------------------------------------------
+    -- Reset generation process
+    --------------------------------------------------------------------
+    p_reset_gen : process
+    begin
+        s_reset <= '0';
+        wait for 40 ns;
+        
+        -- Reset activated
+        s_reset <= '1';
+        wait for 60 ns;
+
+        s_reset <= '0';
+        wait for 700 ns;
+        
+        s_reset <= '1';
+        wait for 70 ns;
+        
+        s_reset <= '0';
+        
+        wait;
+    end process p_reset_gen;
+    
+
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        report "Stimulus process started" severity note;
+        
+        s_en_i     <= '1';
+        
+        s_revs    <= 0;
+        wait for 20 ns;        
+        s_revs     <= 1;
+        wait for 20 ns;    
+        s_revs     <= 0;
+        wait for 20 ns;        
+        s_revs     <= 0;    
+        wait for 20 ns;       
+        s_revs     <= 0;
+        wait for 20 ns;        
+        s_revs     <= 4997;
+        wait for 20 ns;
+        s_revs     <= 4998;
+        wait for 20 ns;
+        s_revs     <= 4999;
+        wait for 20 ns;
+        s_revs     <= 5000;
+        wait for 20 ns;
+        s_revs     <= 0;
+        wait for 20 ns;
+        s_revs     <= 1;
+        wait for 20 ns;
+        
+
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+
+end Behavioral;
+```
 
 
 
