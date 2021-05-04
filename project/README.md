@@ -23,7 +23,7 @@ Funkce tachometru: měření rychlosti, Měření ujeté vzdálenosti.
 -----------------------------------
 ## Použitý Hardware
 
-Vytvořený kód měl být implementovatelný na desky Arty A7 - 35T, or Arty A7 - 100T. Pro tento projek byla zvolena deska Arty A7 - 35T.
+Vytvořený kód měl být implementovatelný na desky Arty A7 - 35T, nebo Arty A7 - 100T. Pro tento projek byla zvolena deska Arty A7 - 35T.
 
 Odkaz na stránky výrobce desky: Artix-7 FPGA Development Board:
 https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/
