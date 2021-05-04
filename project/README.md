@@ -1,58 +1,43 @@
 # Tachometer
 
-### Team members
+### vypracovali:
 
-Januška Tomáš
-
-Klimeš Jiří
-
-Mostecký Jan
-
-Němec Petr
+Januška Tomáš (),
+Klimeš Jiří (),
+Mostecký Jan (),
+Němec Petr ()
 
 [Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
 
 
 
 -----------------------------------
-### Project objectives
+## Cíl projektu
 
-Console for bike
-Hall sensor
-Measuring - current speed
-Measuring - how much distance was traveled
-Measuring - time lenght of the travel
+Cílem projektu bylo navrhnout a realizovat pomocí jazyku VHDL cyklo-tachometr. Následně výsledek projektu zpracovat do README.md souboru a videoprezentace. 
 
-The goal of this project is to create Tachometer, that will work based on Hall senzor (based on Hall effect).
-The Tachometer should (as mentioned above) measure time, lenght and velocity and all should be able to be displayed on a 7 segment display.
-
-The code is written in VHDL.
+Funkce tachometru: měření rychlosti, Měření ujeté vzdálenosti.
 
 
 -----------------------------------
-## Hardware description
+## Použitý Hardware
 
-According to the assignment the code must be implementable on Arty A7 - 35T, or Arty A7 - 100T. We decided to choose Arty A7 - 35T.
+Vytvořený kód měl být implementovatelný na desky Arty A7 - 35T, or Arty A7 - 100T. Pro tento projek byla zvolena deska Arty A7 - 35T.
 
-Link to the Arty A7: Artix-7 FPGA Development Board:
+Odkaz na stránky výrobce desky: Artix-7 FPGA Development Board:
 https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/
 
-All product support including documentation, projects, and the Digilent Forum can be accessed through the product resource center:
+Technická dokumentace desky, uživatelské fórum: 
 https://reference.digilentinc.com/reference/programmable-logic/arty-a7/start
 
-
-
-But the most important are:
-
-Reference Manual:
+Manuál:
 https://reference.digilentinc.com/reference/programmable-logic/arty-a7/reference-manual
 
-Schematic:
+Schéma:
 https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/arty_a7_sch.pdf
 
 
-
-Arty A7-35T comes with several types of inputs or outputs, all can be seen on images below:
+### Vstupy a výstupy desky Arty A7-35T:
 
 Board Image
 ![BoardImage](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Arty_A7_Board.PNG)
